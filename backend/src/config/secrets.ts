@@ -2,7 +2,8 @@ export interface SecretSpec { key: string; required?: boolean; defaultValue?: st
 
 const SPECS: SecretSpec[] = [
   { key: 'FIREBASE_API_KEY', required: true },
-  { key: 'GOOGLE_OAUTH_CLIENT_ID', required: true }
+  { key: 'GOOGLE_OAUTH_CLIENT_ID', required: true },
+  { key: 'FIREBASE_SERVICE_ACCOUNT_JSON', required: true }
 ];
 
 export function loadSecrets() {
