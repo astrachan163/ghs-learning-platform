@@ -1,9 +1,8 @@
-
 import request from 'supertest';
-import app from '../../src/index'; // Import the Express app
+import app from '../../index'; // Import the Express app
 
 // Mock the auth and rbac middlewares to isolate the validation logic
-jest.mock('../../src/middleware/auth', () => ({
+jest.mock('../../middleware/auth', () => ({
   requireAuth: (req: any, res: any, next: any) => {
     // Mock a user to satisfy the route handler
     req.user = { uid: 'mock-admin-uid', role: 'admin' };
@@ -11,12 +10,12 @@ jest.mock('../../src/middleware/auth', () => ({
   },
 }));
 
-jest.mock('../../src/middleware/rbac', () => ({
+jest.mock('../../middleware/rbac', () => ({
   hasRole: (roles: string[]) => (req: any, res: any, next: any) => next(),
 }));
 
 // Mock the orchestration registry to prevent writes during tests
-jest.mock('../../src/services/orchestrationRegistry', () => ({
+jest.mock('../../services/orchestrationRegistry', () => ({
   recordExecution: jest.fn(),
 }));
 
