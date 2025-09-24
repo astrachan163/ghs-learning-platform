@@ -6,7 +6,9 @@ import { initializeFirebase } from './config/firebase';
 import authRoutes from './routes/authRoutes'; // Import auth routes
 
 // Initialize Firebase Admin SDK
-initializeFirebase();
+if (process.env.NODE_ENV !== 'test') {
+  initializeFirebase();
+}
 
 const app = express();
 app.use(express.json());
@@ -22,4 +24,10 @@ app.get('/health', (req, res) => {
 });
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => logger.info(`backend_started`, { port: PORT }));
+
+// Start the server only if not in test mode
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => logger.info(`backend_started`, { port: PORT }));
+}
+
+export default app;
