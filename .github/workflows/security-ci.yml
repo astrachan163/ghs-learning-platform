@@ -1,0 +1,31 @@
+name: Security & Foundation CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install root
+        run: npm install
+      - name: Install backend
+        run: npm install --workspace backend
+      - name: Build backend
+        run: npm run build --workspace backend
+      - name: SBOM
+        run: npx @cyclonedx/cyclonedx-npm --output-file sbom.json
+      - name: Upload SBOM
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.json
+      - name: Audit
+        run: npm audit --workspace backend || true
