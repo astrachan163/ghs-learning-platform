@@ -6,6 +6,7 @@ import { DecodedIdToken } from 'firebase-admin/auth';
 // Extend the Express Request interface to include the user property
 export interface AuthenticatedRequest extends Request {
   user?: DecodedIdToken;
+  traceId?: string;
 }
 
 export async function requireAuth(req: AuthenticatedRequest, res: Response, next: NextFunction) {
