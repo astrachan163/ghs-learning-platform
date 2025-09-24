@@ -1,0 +1,16 @@
+{
+  "name": "georgia-homeschool-platform",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "bootstrap": "npm install --workspaces",
+    "lint": "echo \"(Add lint step)\"",
+    "manifest:generate": "bash scripts/generate-release-manifest.sh",
+    "security:scan": "npm audit --workspace backend || true",
+    "sbom": "npx @cyclonedx/cyclonedx-npm --output-file sbom.json",
+    "test": "npm test --workspaces"
+  }
+}

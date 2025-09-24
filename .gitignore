@@ -1,0 +1,20 @@
+# Node
+node_modules
+dist
+coverage
+npm-debug.log*
+
+# Env
+.env
+.env.local
+
+# Logs
+*.log
+
+# Build artifacts
+release-manifest.json
+release-manifest.json.sha256
+sbom.json
+
+# OS
+.DS_Store
