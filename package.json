@@ -11,6 +11,6 @@
     "manifest:generate": "bash scripts/generate-release-manifest.sh",
     "security:scan": "npm audit --workspace backend || true",
     "sbom": "npx @cyclonedx/cyclonedx-npm --output-file sbom.json",
-    "test": "npm test --workspaces"
+    "test": "npm test --workspaces --if-present"
   }
 }
