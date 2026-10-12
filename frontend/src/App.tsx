@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-      <nav style={{ marginBottom: '2rem', borderBottom: '1px solid #ccc', paddingBottom: '1rem' }}>
-        <h2>Georgia Homeschool Platform (Skeleton)</h2>
+      <nav className="portal-nav">
+        <h2>MaQkrs Learn</h2>
         {/* Add links here to switch components */}
       </nav>
       <main>

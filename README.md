@@ -1,50 +1,79 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/brand/banner-dark.png">
+    <img src="docs/brand/banner-light.png" alt="MaQkrs Learn: a public source snapshot" width="880">
+  </picture>
+</p>
 
-# Georgia Homeschool (GHS) Learning Platform - Foundational Backend
+# MaQkrs Learn
 
-This repository contains the foundational backend, infrastructure, and security architecture for the Georgia Homeschool (GHS) Learning Platform.
+MaQkrs Learn is a public source snapshot of a learning product for families and instructors.
 
-**Note:** The purpose of this project is not to present a completed, user-facing application. Instead, its primary goal is to demonstrate a professional, "foundation-first" approach to software engineering, where security, governance, and architectural rigor are established *before* feature development begins.
+**Status:** Coursework prototype. The API, role checks, and security notes are in the tree. The screens are placeholders, and this repository is not the running site.
 
-This repository serves as tangible evidence of a mature DevSecOps methodology applied to a greenfield project.
+Live: https://learn.nonartificialsi.com (in progress) · Part of [Andrew Strachan's portfolio](https://www.nonartificialsi.com)
 
----
+The active build is the org repo `GHS-Learning-Platform-Development/ghs-learning-platform-proto` (agent bc-1d4b7221). https://learn.nonartificialsi.com is in progress until that host serves.
 
-## Project Overview
+## What it does today
 
-The GHS Learning Platform is a conceptual application designed to provide a parent-led, K-12 educational experience aligned with Georgia's state standards. This repository establishes the secure and scalable foundation upon which the full application would be built.
+- An Express API exposes a health check, stamps each request with a trace id, and offers an admin-only route that sets a user role after a Firebase JWT check.
+- Zod validation on that route rejects missing fields and non-string values. The security tests cover those cases.
+- Curriculum schemas describe subjects, units, lessons, and activities.
+- The frontend shows a parent placeholder. Teacher and student components are in the source and are not routed.
+- Terraform describes a Cloud Storage logging bucket. Threat-model, incident-simulation, and governance notes sit under `docs/`.
+- GitHub Actions installs dependencies, builds the API, and uploads an SBOM. The audit step is allowed to fail without failing the job.
 
-The entire development process, from initial commit to the final documentation, has been meticulously structured to follow industry best practices for a Secure Software Development Lifecycle (SDLC).
+## Planned
 
-## Guided Tour & Evidence Collation
+- Routed teacher and student screens [planned]
+- Security headers on the Express API [planned]
+- Rate limiting on role changes [planned]
 
-To fully understand the scope and methodology of this project, please begin with the master evidence document:
+## Screens
 
-**[➡️ ADMISSIONS APPENDIX: A Guided Tour of the Repository](./docs/ADMISSIONS_APPENDIX.md)**
+![Parent placeholder with the heading MaQkrs Learn and the text Parent Dashboard](docs/screens/parent-placeholder.webp)
 
-This central document provides a comprehensive narrative of the project's philosophy and links to all key architectural and security artifacts.
+Captured from the production preview of this snapshot. No real user data, keys, emails, or tokens appear in it. Teacher and student components are not routed, so they are not shown.
 
-## Key Features of this Foundation
+## How it's built
 
-This is not just an empty code skeleton. The `main` branch contains a robust set of integrated, security-focused features:
+- The API is TypeScript on Express. Firebase Admin reads a service-account JSON string from the environment and checks JWTs.
+- The screens are React on Vite. They do not call a model, and they do not receive server credentials.
+- `infrastructure/` is Terraform for one logging bucket. Apply it only in a cloud project you control.
+- `firebase.json` records a static-host header policy. This repository does not deploy that host.
 
-*   **🔒 Security-First Architecture:** The project's commit history demonstrates that security artifacts (Threat Models, Governance Charters) were created before any application logic.
-*   **⚙️ Automated Security CI/CD:** A GitHub Actions workflow (`.github/workflows/security-ci.yml`) automatically performs dependency auditing and security checks.
-*   **🔑 Authentication & RBAC:** A complete authentication and Role-Based Access Control system using Firebase JWTs and custom middleware.
-*   **🛡️ Proactive Threat Modeling:** A STRIDE-based threat model that was updated as new authentication features were added.
-*   **📝 Architectural Decision Records (ADRs):** Formal documentation for key decisions, such as secrets management and the "foundation-first" approach.
-*   **🚨 Incident Response Simulation:** A documented simulation of a security incident (`unauthorized role change`) to prove the effectiveness of the logging and response runbook.
-*   **🏗️ Infrastructure as Code (IaC):** A baseline Terraform configuration for establishing critical cloud infrastructure, such as a central logging bucket.
-*   **🧪 Security-Focused Testing:** Integration tests specifically designed to challenge input validation and prevent injection attacks.
+## Run it locally
 
-## Navigating the Repository
+```sh
+npm install
+cp .env.example .env.local   # fill in your own values; never commit them
+npm run dev --workspace backend
+npm run dev --workspace frontend
+```
 
-*   **/docs**: The heart of the project. Contains all security, architecture, and governance documentation.
-*   **/backend**: The Node.js (Express) backend service, built with TypeScript.
-*   **/frontend**: A placeholder React/Vite application, ready for dashboard development.
-*   **/infrastructure**: Terraform IaC for Google Cloud.
-*   **Branches**: The numerous branches on this repository are a historical record of the development process, demonstrating the use of isolated feature, security, and documentation branches. The `main` branch represents the stable, integrated result of this work.
+Run those commands from the repository root. The API listens on port 4000 unless `PORT` is set. It refuses to start without `FIREBASE_SERVICE_ACCOUNT_JSON`, except when `NODE_ENV=test`. The Vite dev server prints its own local URL.
 
----
+## Tests and checks
 
-### Prior Prototype Lineage
-This platform supersedes earlier exploratory repositories (like `adaptiveprep2`) which lacked early formal security artifacts. Architectural lessons were distilled here as first-class foundations.
+```sh
+npm test --workspace backend      # 4 tests
+npm run build --workspace backend
+npm run build --workspace frontend
+npm run check
+gitleaks dir . --redact
+```
+
+`npm run check` runs the claims gate, the emoji gate, and the brand-hotlink gate.
+
+## Security
+
+No secrets are committed. Configuration comes from environment variables listed in `.env.example`. The browser build does not receive the service-account JSON. A full-history secret scan is recorded in `docs/LINEAGE.md` under History rewrite (Andrew). Report a problem to strachan@uab.edu.
+
+## Credits
+
+Author: Andrew Strachan. Built by MaQkrs.
+
+## License
+
+All rights reserved. Source shared for review.

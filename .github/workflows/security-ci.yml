@@ -20,6 +20,12 @@ jobs:
         run: npm install --workspace backend
       - name: Build backend
         run: npm run build --workspace backend
+      - name: Test backend
+        run: npm test --workspace backend
+      - name: Build frontend
+        run: npm run build --workspace frontend
+      - name: Claim, emoji, and brand gates
+        run: npm run check
       - name: SBOM
         run: npx @cyclonedx/cyclonedx-npm --output-file sbom.json
       - name: Upload SBOM

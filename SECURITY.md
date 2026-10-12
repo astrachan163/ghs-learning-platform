@@ -5,7 +5,8 @@
 Please report security issues privately:
 
 1. Open a [private vulnerability advisory](https://github.com/astrachan163/ghs-learning-platform/security/advisories/new) on this repository, or
-2. Contact the maintainer via the GitHub profile: https://github.com/astrachan163
+2. Email strachan@uab.edu, or
+3. Contact the maintainer via the GitHub profile: https://github.com/astrachan163
 
 Do not open a public issue for vulnerabilities that could expose users or credentials.
 

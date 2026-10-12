@@ -1,5 +1,5 @@
 {
-  "name": "georgia-homeschool-platform",
+  "name": "ghs-learning-platform",
   "private": true,
   "workspaces": [
     "backend",
@@ -11,6 +11,7 @@
     "manifest:generate": "bash scripts/generate-release-manifest.sh",
     "security:scan": "npm audit --workspace backend || true",
     "sbom": "npx @cyclonedx/cyclonedx-npm --output-file sbom.json",
-    "test": "npm test --workspaces --if-present"
+    "test": "npm test --workspaces --if-present",
+    "check": "node scripts/check-claims.mjs && node scripts/check-emoji.mjs && node scripts/check-brand-hotlink.mjs"
   }
 }

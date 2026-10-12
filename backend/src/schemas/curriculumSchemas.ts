@@ -1,9 +1,9 @@
 
 import { z } from 'zod';
 
-// Base schema for a Georgia Standard of Excellence (GSE)
-export const GSEStandardSchema = z.object({
-  id: z.string().min(1, "GSE ID is required"),
+// Opaque curriculum-standard record. Callers choose the id.
+export const CurriculumStandardSchema = z.object({
+  id: z.string().min(1, "Standard id is required"),
   description: z.string(),
 });
 
@@ -26,7 +26,7 @@ export const LessonSchema = z.object({
   id: z.string().cuid2(),
   title: z.string(),
   objective: z.string(),
-  standards: z.array(GSEStandardSchema),
+  standards: z.array(CurriculumStandardSchema),
   activities: z.array(ActivitySchema),
 });
 
@@ -45,6 +45,6 @@ export const SubjectEnum = z.enum(['ELA', 'Mathematics', 'Science', 'Social Stud
 export const CurriculumSchema = z.object({
   id: z.string().cuid2(),
   subject: SubjectEnum,
-  gradeLevel: z.number().int().min(0).max(12), // K=0
+  gradeLevel: z.number().int().min(0).max(12),
   units: z.array(UnitSchema),
 });

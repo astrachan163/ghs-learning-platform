@@ -1,7 +1,7 @@
 
 # Infrastructure as Code (IaC)
 
-This directory contains the Terraform configuration for the Georgia Homeschool Platform.
+This directory contains the Terraform configuration for MaQkrs Learn.
 
 ## Baseline Infrastructure (v0.1)
 
