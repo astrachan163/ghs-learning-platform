@@ -3,7 +3,7 @@
 
 ## 1. Introduction
 
-This document serves as a guided tour of the `georgia-homeschool-platform` repository, specifically for the purpose of academic review. It provides a narrative and collates evidence to demonstrate a deliberate, security-first approach to modern software engineering. The goal is to show not just *what* was built, but *how* and *why* it was built in a manner that aligns with professional DevSecOps best practices.
+This document serves as a guided tour of the `ghs-learning-platform` repository, specifically for the purpose of academic review. It provides a narrative and collates evidence to demonstrate a deliberate, security-first approach to modern software engineering. The goal is to show not just *what* was built, but *how* and *why* it was built in a manner that aligns with professional DevSecOps best practices.
 
 ## 2. The "Foundation-First" Philosophy
 

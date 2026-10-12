@@ -18,3 +18,9 @@ sbom.json
 
 # OS
 .DS_Store
+
+# Key-like files. Credentials stay in the environment.
+*service-account*.json
+*firebase-adminsdk*.json
+*.pem
+*.p12

@@ -1,0 +1,11 @@
+README banners for this snapshot.
+
+Composed from MaQkrs brand kit v1.
+Kit zip SHA-256: 8307ca0e2a9dd3b230f90804bf65b906706ea6a0bab11514a50814c382a9c777
+
+Files used, pasted without resampling:
+- logo/maqkrs-wordmark-pixel-day@2x.png on white
+- logo/maqkrs-wordmark-pixel-night@2x.png on navy #182048
+- sprites/pilots/course_tracker-idle-4x.png at native 128 by 128 pixels
+
+Rule color: #3F9E40
