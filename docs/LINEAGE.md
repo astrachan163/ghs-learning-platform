@@ -2,16 +2,17 @@
 
 ## What this was
 
-A foundation-first source tree for a schooling portal: an Express API, Firebase token checks, role names for student, parent, teacher, and admin, curriculum record schemas, a Terraform logging bucket, and placeholder screens. Early wording tied the project to a state program and a grade-band label. That wording is removed from this public snapshot.
+A foundation-first source tree for a learning product: an Express API, Firebase token checks, role names for student, parent, teacher, and admin, curriculum record schemas, a Terraform logging bucket, and placeholder screens. Early wording tied the project to a state program and a grade-band label. That wording is removed from this public snapshot.
 
 ## What it became
 
-The public source snapshot of the GHS Learning Platform. The running schooling portal is a separate site. This repository documents the foundation and does not deploy it.
+The public source snapshot of MaQkrs Learn. The active build is the org repo `GHS-Learning-Platform-Development/ghs-learning-platform-proto` (agent bc-1d4b7221). This repository documents the foundation and does not deploy it.
 
 ## Links
 
-- Live product: https://ghs.nonartificialsi.com
+- Live hostname: https://learn.nonartificialsi.com (in progress, until that host serves)
 - Portfolio: https://www.nonartificialsi.com
+- Active build: `GHS-Learning-Platform-Development/ghs-learning-platform-proto` (agent bc-1d4b7221)
 
 ## History rewrite (Andrew)
 

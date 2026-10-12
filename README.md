@@ -1,17 +1,19 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/brand/banner-dark.png">
-    <img src="docs/brand/banner-light.png" alt="GHS Learning Platform: a schooling portal" width="880">
+    <img src="docs/brand/banner-light.png" alt="MaQkrs Learn: a public source snapshot" width="880">
   </picture>
 </p>
 
-# GHS Learning Platform
+# MaQkrs Learn
 
-GHS Learning Platform is a schooling portal for families and instructors. This repository is the public source snapshot.
+MaQkrs Learn is a public source snapshot of a learning product for families and instructors.
 
 **Status:** Coursework prototype. The API, role checks, and security notes are in the tree. The screens are placeholders, and this repository is not the running site.
 
-Live: https://ghs.nonartificialsi.com · Part of [Andrew Strachan's portfolio](https://www.nonartificialsi.com)
+Live: https://learn.nonartificialsi.com (in progress) · Part of [Andrew Strachan's portfolio](https://www.nonartificialsi.com)
+
+The active build is the org repo `GHS-Learning-Platform-Development/ghs-learning-platform-proto` (agent bc-1d4b7221). https://learn.nonartificialsi.com is in progress until that host serves.
 
 ## What it does today
 
@@ -30,7 +32,7 @@ Live: https://ghs.nonartificialsi.com · Part of [Andrew Strachan's portfolio](h
 
 ## Screens
 
-![Parent placeholder with the heading GHS Learning Platform and the text Parent Dashboard](docs/screens/parent-placeholder.webp)
+![Parent placeholder with the heading MaQkrs Learn and the text Parent Dashboard](docs/screens/parent-placeholder.webp)
 
 Captured from the production preview of this snapshot. No real user data, keys, emails, or tokens appear in it. Teacher and student components are not routed, so they are not shown.
 

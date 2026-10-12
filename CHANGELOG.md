@@ -8,7 +8,7 @@
 - Static hosting header policy in `firebase.json` (not deployed)
 
 ### Changed
-- Public snapshot describes a schooling portal. State-program wording is removed from the README, the screen title, and the curriculum schema comments.
+- Public snapshot is named MaQkrs Learn. The live hostname is https://learn.nonartificialsi.com (in progress). State-program wording is removed from the README, the screen title, and the curriculum schema comments.
 
 ### Security
 - Threat model placeholders

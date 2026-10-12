@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <nav className="portal-nav">
-        <h2>GHS Learning Platform</h2>
+        <h2>MaQkrs Learn</h2>
         {/* Add links here to switch components */}
       </nav>
       <main>

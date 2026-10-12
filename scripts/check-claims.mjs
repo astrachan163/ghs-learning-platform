@@ -43,7 +43,7 @@ const GROUPS = [
     name: 'standards-and-trial',
     flags: 'i',
     source:
-      'Georgia[^.]{0,40}standards|aligned with [^.]{0,30}standards|\\bGSE\\b|Milestones aligned|30-day (free )?trial',
+      'Georgia[^.]{0,40}standards|aligned with [^.]{0,30}standards|\\bGSE\\b|Milestones aligned|30-day (free )?trial|ghs\\.nonartificialsi\\.com',
   },
   {
     name: 'titles-a',
